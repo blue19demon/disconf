@@ -1,4 +1,4 @@
-package com.tgb.service;
+package com.tgb.disconf.prop;
 
 import java.io.Serializable;
 

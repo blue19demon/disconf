@@ -1,4 +1,4 @@
-package com.tgb.service;
+package com.tgb.bean;
 
 import java.io.Serializable;
 

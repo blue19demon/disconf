@@ -1,4 +1,4 @@
-package com.tgb.service;
+package com.tgb.configs;
 
 import java.util.ArrayList;
 import java.util.List;
