@@ -2,24 +2,20 @@ package com.tgb.disconf.prop;
 
 import java.io.Serializable;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
 import com.baidu.disconf.client.common.annotations.DisconfFile;
 import com.baidu.disconf.client.common.annotations.DisconfFileItem;
-import com.baidu.disconf.client.common.update.IDisconfUpdate;
 
 @Configuration
 @DisconfFile(filename = "mysql.properties")
-public class MysqlConfig implements IDisconfUpdate,Serializable {
+public class MysqlConfig implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	protected static final Logger LOGGER = LoggerFactory.getLogger(MysqlConfig.class);
 
 	private String driver;
 	private String url;
@@ -27,9 +23,6 @@ public class MysqlConfig implements IDisconfUpdate,Serializable {
 	private String password;
 	private String foo;
 
-	public void reload() throws Exception {
-		LOGGER.info("host: " + driver);
-	}
 
 	@DisconfFileItem(name = "jdbc.driver", associateField = "driver")
 	public String getDriver() {
