@@ -6,10 +6,11 @@ import org.springframework.context.annotation.Configuration;
 
 import com.baidu.disconf.client.common.annotations.DisconfFile;
 import com.baidu.disconf.client.common.annotations.DisconfFileItem;
+import com.baidu.disconf.client.common.update.IDisconfUpdate;
 
 @Configuration
 @DisconfFile(filename = "mysql.properties")
-public class MysqlConfig implements Serializable {
+public class MysqlConfig implements IDisconfUpdate,Serializable {
 
 	/**
 	 * 
@@ -63,5 +64,10 @@ public class MysqlConfig implements Serializable {
 
 	public void setFoo(String foo) {
 		this.foo = foo;
+	}
+
+	@Override
+	public void reload() throws Exception {
+		System.out.println("update");
 	}
 }

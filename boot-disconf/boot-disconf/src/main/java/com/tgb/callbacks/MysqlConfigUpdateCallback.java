@@ -11,8 +11,8 @@ import com.tgb.disconf.prop.MysqlConfig;
 /**
  * 这是mysqlConfig的回调函数类
  */
-@Service
-@DisconfUpdateService(classes = {MysqlConfig.class})
+//@Service
+//@DisconfUpdateService(classes = {MysqlConfig.class})
 public class MysqlConfigUpdateCallback implements IDisconfUpdate {
 
 
