@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.apollo.bean.PicServer;
 import com.apollo.constant.KesConstants;
-import com.apollo.utils.ApolloValueReadUtil;
+import com.ctrip.framework.apollo.Config;
+import com.ctrip.framework.apollo.spring.annotation.ApolloConfig;
 
 @Controller
 public class ApolloTestController {
@@ -20,6 +21,9 @@ public class ApolloTestController {
 
 	@Autowired
 	private PicServer picServer;
+	
+	@ApolloConfig
+    private Config config;
 	@ResponseBody
 	@RequestMapping("/getConfigByApollo1")
 	public String getConfigByApollo1() {
@@ -35,6 +39,6 @@ public class ApolloTestController {
 	@ResponseBody
 	@RequestMapping("/getConfigByApollo2")
 	public String getConfigByApollo2(){
-		return ApolloValueReadUtil.getApolloValueByKey(KesConstants.KEYS_IMG_APPADDRESS);
+		return config.getProperty(KesConstants.KEYS_IMG_APPADDRESS, "default");
 	}
 }

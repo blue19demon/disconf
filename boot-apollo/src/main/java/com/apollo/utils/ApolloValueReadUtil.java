@@ -6,9 +6,9 @@ import com.ctrip.framework.apollo.Config;
 import com.ctrip.framework.apollo.ConfigService;
 
 /**
- * 阿波罗读取key
- * @author asus
+ * 阿波罗读取
  */
+@Deprecated
 public class ApolloValueReadUtil {
 	public static String getApolloValueByKey(String key){
 		if(StringUtils.isEmpty(key)){
