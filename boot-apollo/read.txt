@@ -1,0 +1,5 @@
+java -jar boot-apollo-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
+
+java -jar boot-apollo-0.0.1-SNAPSHOT.jar --spring.profiles.active=sit
+
+java -jar boot-apollo-0.0.1-SNAPSHOT.jar --spring.profiles.active=uat
