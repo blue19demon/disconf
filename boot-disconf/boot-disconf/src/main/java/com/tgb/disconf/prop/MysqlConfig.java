@@ -2,13 +2,13 @@ package com.tgb.disconf.prop;
 
 import java.io.Serializable;
 
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import com.baidu.disconf.client.common.annotations.DisconfFile;
 import com.baidu.disconf.client.common.annotations.DisconfFileItem;
 import com.baidu.disconf.client.common.update.IDisconfUpdate;
 
-@Configuration
+@Component
 @DisconfFile(filename = "mysql.properties")
 public class MysqlConfig implements IDisconfUpdate,Serializable {
 
@@ -22,7 +22,6 @@ public class MysqlConfig implements IDisconfUpdate,Serializable {
 	private String url;
 	private String username;
 	private String password;
-	private String foo;
 
 
 	@DisconfFileItem(name = "jdbc.driver", associateField = "driver")
@@ -56,14 +55,6 @@ public class MysqlConfig implements IDisconfUpdate,Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	@DisconfFileItem(name = "foo.url", associateField = "foo")
-	public String getFoo() {
-		return foo;
-	}
-
-	public void setFoo(String foo) {
-		this.foo = foo;
 	}
 
 	@Override

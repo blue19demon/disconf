@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.apollo.config.DBConfig;
-import com.apollo.config.MQConfig;
-import com.apollo.config.ZKConfig;
-import com.google.gson.Gson;
+import com.apollo.config.apollo.DBConfig;
+import com.apollo.config.apollo.MQConfig;
+import com.apollo.config.apollo.ZKConfig;
+import com.apollo.utils.JacksonJsonMapper;
 
 @RestController
 @RequestMapping("/platfrorm")
@@ -24,11 +24,11 @@ public class PlatformConfController {
 	
 	@RequestMapping("/config")
 	public String config() {
-		 Gson json=new  Gson();
-		return "DBConfig:<br>"+json.toJson(DBConfig)
+		JacksonJsonMapper jacksonJsonMapper= JacksonJsonMapper.INSTANCE;
+		return "DBConfig:<br>"+jacksonJsonMapper.toJson(DBConfig)
 		        .concat("<br>")
-				.concat("MQConfig:<br>"+json.toJson(MQConfig))
+				.concat("MQConfig:<br>"+jacksonJsonMapper.toJson(MQConfig))
 				.concat("<br>")
-				.concat("ZKConfig:<br>"+json.toJson(ZKConfig));
+				.concat("ZKConfig:<br>"+jacksonJsonMapper.toJson(ZKConfig));
 	}
 }

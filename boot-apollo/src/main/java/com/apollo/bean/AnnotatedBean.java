@@ -50,10 +50,10 @@ public class AnnotatedBean {
     private void someChangeHandler(ConfigChangeEvent changeEvent) {
         logger.info("[someChangeHandler]Changes for namespace {}", changeEvent.getNamespace());
         if (changeEvent.isChanged("timeout")) {
-            //refreshTimeout();
+            refreshTimeout();
         }
         if (changeEvent.isChanged("batch")) {
-            //setBatch(Integer.valueOf(changeEvent.getChange("batch").getNewValue()));
+            setBatch(Integer.valueOf(changeEvent.getChange("batch").getNewValue()));
         }
     }
 
